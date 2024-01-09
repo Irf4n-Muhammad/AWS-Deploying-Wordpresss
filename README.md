@@ -1,3 +1,3 @@
 # AWS Deploying Wordpress
 
-![Pipeline Architecture](path/to/your/image.png)
+![Pipeline Architecture](image/aws-pipeline.png)
