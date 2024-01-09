@@ -21,7 +21,10 @@ We will try to interate the wordpress with the AWS and launch the wordpress publ
    - DB instance identifier - rpllab1
    - Master username - rpllab
    - Password - ******
-   - Select burstable class and select "Include previous generation class"
+   - Select burstable class and select "Include previous generation class"ty
+   - Select storage type as General Purpose SSD and not provisioned IOPS
    - DB instance size - dbt.t2.micro
    - Disable storage autoscaling
-### 3.5.
+### 3.5. Create the IAM role
+   Create the IAM role and attach the policies "AWSS3FullAccess" and create the new role with name "S3AllAccess"
+
