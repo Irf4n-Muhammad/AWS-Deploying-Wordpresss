@@ -1,1 +1,1 @@
-# AWS-Deploying-Wordpresss
+# AWS Deploying Wordpress
