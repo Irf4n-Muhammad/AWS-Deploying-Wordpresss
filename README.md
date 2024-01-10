@@ -29,3 +29,13 @@ We will try to interate the wordpress with the AWS and launch the wordpress publ
    Create the IAM role and attach the policies "AWSS3FullAccess" and create the new role with name "S3AllAccess"
 ### 3.6 Create the new EC2 Instance with the following setting
 
+### 3.7 SHH into the EC2 and launched the code
+
+### 3.8 Login to the MySQL RDS Database
+
+### 3.9 Once logged into MySQL and then execute
+
+### 3.10 Edit wp-config.php in /var/www/html and modify it
+
+### 3.11
+
