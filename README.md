@@ -15,8 +15,14 @@ We will try to interate the wordpress with the AWS and launch the wordpress publ
    - Auto Scaling group would help to manage the number of EC2 following the needs (it could be shrink down or shrink up depends on the demands)
 
 ## 3. Procedure:
-### 3.1. Create 2 S3 bucket with name "rlp-code-aws" and "rlp-media-aws". Retain the default settings.
+### 3.1. Create 2 S3 bucket with name "rlp-code-aws" and "rlp-media-aws" (You can change it, but it must be unique globally). Retain the default settings.
+
+<img width="825" alt="image" src="https://github.com/Irf4n-Muhammad/AWS-Deploying-Wordpresss/assets/121205860/510b6617-2665-4956-96c1-0d4d982c8226">
+
 ### 3.2. Create a new cloudfront distribution and select the origin domain name as the media s3 bucket "rlp-media-aws". Leave all the default setting.
+
+<img width="853" alt="image" src="https://github.com/Irf4n-Muhammad/AWS-Deploying-Wordpresss/assets/121205860/d7e67bd7-c516-412d-a928-5f51b263df30">
+
 ### 3.3. Navigate to the VPC console and create the security groups:
    - WebDMZ
      -  Inbound - HTTP - 80 - Source - all IP
