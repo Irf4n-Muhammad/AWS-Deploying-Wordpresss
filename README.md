@@ -49,16 +49,61 @@ We will try to interate the wordpress with the AWS and launch the wordpress publ
 <img width="648" alt="image" src="https://github.com/Irf4n-Muhammad/AWS-Deploying-Wordpresss/assets/121205860/eb9c9ac0-eea5-470c-99fe-0061e5c68549">
 
 ### 3.5. Create the IAM role
-   Create the IAM role and attach the policies "AWSS3FullAccess" and create the new role with name "S3AllAccess"
-### 3.6 Create the new EC2 Instance with the following setting
+   Create the new AMI and attach the IAM role and attach the policies "AWSS3FullAccess" and create the new role with name "S3AllAccess"
 
-### 3.7 SHH into the EC2 and launched the code
+<img width="650" alt="image" src="https://github.com/Irf4n-Muhammad/AWS-Deploying-Wordpresss/assets/121205860/8751d3cc-68f9-4d6e-9265-df45d1834099">
+
+### 3.7 SSH into the EC2 and launched the code
+Run this command
+```bash
+sudo yum update -y
+sudo yum install -y httpd
+sudo service httpd start
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+wget https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+cd wordpress
+cp wp-config-sample.php wp-config.php
+cd /home/ec2-user
+sudo cp -r wordpress/* /var/www/html/
+sudo su
+cd /var/www/html/
+echo "healthy" > healthy.html
+wget https://s3.amazonaws.com/bucketforwordpresslab-dontdelete/htaccess.txt
+mv htaccess.txt .htaccess
+chkconfig httpd on
+service httpd restart
+sudo yum install -y mysql
+export MYSQL_HOST=<your-RDS-endpoint>
+```
 
 ### 3.8 Login to the MySQL RDS Database
 
+```bash
+mysql --user=rpllab --password=password rpllab
+```
+
 ### 3.9 Once logged into MySQL and then execute
+```bash
+CREATE USER 'wordpress' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON rpllab.* TO 'wordpress';
+FLUSH PRIVILEGES;
+EXIT;
+```
 
 ### 3.10 Edit wp-config.php in /var/www/html and modify it
+```bash
+define( 'DB_NAME', 'rpllab' );
+
+/** MySQL database username */
+define( 'DB_USER', 'wordpress' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'password' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'your-RDS-endpoint' );
+```
 
 ### 3.11
 
