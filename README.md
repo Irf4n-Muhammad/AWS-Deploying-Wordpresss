@@ -28,9 +28,15 @@ We will try to interate the wordpress with the AWS and launch the wordpress publ
      -  Inbound - HTTP - 80 - Source - all IP
      -  Inbound - SSH -22 - Source - All IP
      -  Outbound - All - All - All IP
+
+<img width="836" alt="image" src="https://github.com/Irf4n-Muhammad/AWS-Deploying-Wordpresss/assets/121205860/43a453a2-9486-4c7b-a259-0991c884ceed">
+
    - RDSMySQL
      - Inbound - MySQL/Aurora - 3306 - WebDMZ security group
      - Outbound - All - All - All IP
+
+<img width="840" alt="image" src="https://github.com/Irf4n-Muhammad/AWS-Deploying-Wordpresss/assets/121205860/db328ffc-5f1f-4b26-94cc-25643357d10a">
+
 ### 3.4. Navigate to RDS console and create MySQL as database template as production:
    - DB instance identifier - rpllab1
    - Master username - rpllab
@@ -39,6 +45,9 @@ We will try to interate the wordpress with the AWS and launch the wordpress publ
    - Select storage type as General Purpose SSD and not provisioned IOPS
    - DB instance size - dbt.t2.micro
    - Disable storage autoscaling
+
+<img width="648" alt="image" src="https://github.com/Irf4n-Muhammad/AWS-Deploying-Wordpresss/assets/121205860/eb9c9ac0-eea5-470c-99fe-0061e5c68549">
+
 ### 3.5. Create the IAM role
    Create the IAM role and attach the policies "AWSS3FullAccess" and create the new role with name "S3AllAccess"
 ### 3.6 Create the new EC2 Instance with the following setting
