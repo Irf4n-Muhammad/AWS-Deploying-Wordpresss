@@ -102,8 +102,53 @@ define( 'DB_USER', 'wordpress' );
 define( 'DB_PASSWORD', 'password' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'your-RDS-endpoint' );
+define( 'DB_HOST', '' );
+
+/** Database Charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8' );
+
+/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+
 ```
 
-### 3.11
+### 3.11. Navigate to this URL and copy the entire content and replace the same in the wp-config.php
+```bash
+https://api.wordpress.org/secret-key/1.1/salt/
+```
+
+### 3.12. Editing wp-config
+```bash
+sudo nano /var/www/html/wp-config.php
+```
+
+### 3.13 Restart the APACHE start
+```bash
+sudo service httpd restart
+```
+
+### 3.14 Execute the Following Command
+```bash
+sudo service httpd restart
+cd /var/www/html
+sudo chmod 777 wp-content
+```
+
+### 3.16 List S3 Bucket
+```bash
+aws s3 ls
+```
+
+### 3.17. Sync Wordpress Directory S3 Bucket
+```bash
+aws s3 sync /var/www/html s3://rpllab-code-<yourID>
+```
+
+### 3.18. Check the S3 Bucket for Wordpress
+```bash
+aws s3 ls s3://rpllab-code-<yourID>
+```
+
+### 3.19. Add Bucket Policy to S3
+### 3.20. Create an ALB and connect to the EC2 Instance
 
