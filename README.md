@@ -150,5 +150,21 @@ aws s3 ls s3://rpllab-code-<yourID>
 ```
 
 ### 3.19. Add Bucket Policy to S3
+```bash
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::BUCKET_NAME/*"
+    }
+  ]
+}
+```
 ### 3.20. Create an ALB and connect to the EC2 Instance
+### 3.21. Create an Application Load Balancer 
+### 3.22. Go to ALB and copy the DNS name of the ALB and browse the same using a browser
 
